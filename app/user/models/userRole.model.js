@@ -1,0 +1,31 @@
+var mongoose     = require('mongoose');
+var Schema       = mongoose.Schema;
+
+// Custom validation functions 
+//@@CustomValidations@@
+
+//Nested types declarations
+var roleAccessDetail = require('./roleAccessDetail.model');
+
+
+var userRoleSchema   = new Schema({
+        title: {
+        type: String,
+        required: 'title is required'
+},
+    description: {
+        type: String
+},
+    code: {
+        type: String,
+        required: 'code is required'
+},
+    roleaccessdetails: {
+        type: [roleAccessDetail.schema],
+        required: 'roleaccessdetails is required'
+}
+    
+});
+
+
+module.exports = mongoose.model('userRole', userRoleSchema);
