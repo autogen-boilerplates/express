@@ -4,8 +4,8 @@
   "description": "ctApi in express, with mongodb",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-    "build": "server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node server.js"
   },
   "author": "Shrikant Gond",
   "license": "ISC",
