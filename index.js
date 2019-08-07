@@ -10,8 +10,6 @@ var config = require('./config');
 var middlewares = require('./app/middlewares/index');
 var index_route = require('./app/core/routes/index.route');
 
-console.log(config.conf.app.connectionString);
-console.log(config.conf.security);
 mongoose.connect(config.conf.app.connectionString, {useNewUrlParser:true});
 
 app.use(middlewares.sessions.session);
