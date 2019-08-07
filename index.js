@@ -33,7 +33,7 @@ app.use('/api', index_route);
 
 // Home route
 app.get("/", (req, res) => {
-  res.send("Welcome to a epos express API");
+  res.send("Welcome to a epos express API, [All Rights Reserved] ");
 });
 
 // Mock APIs
