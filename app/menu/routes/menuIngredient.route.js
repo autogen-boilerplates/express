@@ -2,18 +2,23 @@ var express = require('express');
 var router = express.Router();
 
 var middlewares = require('../../middlewares/index');
-var menuIngredientController = require('../controllers/menuIngredient.controller');
+var menuingredientController = require('../controllers/menuingredient.controller');
 
-// ##########################  menuIngredient routes  ##########################
+// ##########################  menuingredient routes  ##########################
 // get routes
-router.get('/getmenuIngredient/:id', middlewares.handlers.asyncHandler(menuIngredientController.getmenuIngredientByID));
-router.post('/getmenuIngredients', middlewares.handlers.asyncHandler(menuIngredientController.getmenuIngredients));
+router.get('/getmenuingredient/:id', middlewares.handlers.asyncHandler(menuingredientController.getmenuingredientByID));
+router.post('/getmenuingredients', middlewares.handlers.asyncHandler(menuingredientController.getmenuingredients));
 // update routes
-router.post('/updatemenuIngredient', middlewares.handlers.asyncHandler(menuIngredientController.updatemenuIngredient));
+router.post('/updatemenuingredient', middlewares.handlers.asyncHandler(menuingredientController.updatemenuingredient));
 // add routes
-router.post('/addmenuIngredients', middlewares.handlers.asyncHandler(menuIngredientController.addmenuIngredients));
+router.post('/addmenuingredients', middlewares.handlers.asyncHandler(menuingredientController.addmenuingredients));
 // delete routes
-router.post('/deletemenuIngredients', middlewares.handlers.asyncHandler(menuIngredientController.deletemenuIngredients));
+router.post('/deletemenuingredients', middlewares.handlers.asyncHandler(menuingredientController.deletemenuingredients));
+
+// custom routes
+
+router.post('/getmenus_title', middlewares.handlers.asyncHandler(menuingredientController.getmenus_title));
+
+router.post('/getmenudetails_code', middlewares.handlers.asyncHandler(menuingredientController.getmenudetails_code));
 
 module.exports = router;
-
