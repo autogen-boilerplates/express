@@ -2,6 +2,7 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 // Custom validation functions 
+<<<<<<< HEAD
 
 //Nested types declarations
 
@@ -41,3 +42,27 @@ var unitSchema   = new Schema({
 
 module.exports = mongoose.model('unit', unitSchema);
 		
+=======
+//@@CustomValidations@@
+
+//Nested types declarations
+
+
+var unitSchema   = new Schema({
+        title: {
+        type: String,
+        required: 'title is required'
+},
+    description: {
+        type: String
+},
+    isactive: {
+        type: Boolean,
+        required: 'isactive is required'
+}
+    
+});
+
+
+module.exports = mongoose.model('unit', unitSchema);
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9

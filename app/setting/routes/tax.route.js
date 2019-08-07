@@ -15,6 +15,11 @@ router.post('/addtaxs', middlewares.handlers.asyncHandler(taxController.addtaxs)
 // delete routes
 router.post('/deletetaxs', middlewares.handlers.asyncHandler(taxController.deletetaxs));
 
+<<<<<<< HEAD
 // custom routes
 
 module.exports = router;
+=======
+module.exports = router;
+
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9

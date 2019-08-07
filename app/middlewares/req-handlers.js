@@ -1,4 +1,5 @@
 module.exports.session_invalid = function(req, res, next){
+<<<<<<< HEAD
   // if (Date.now() > 1544945400000) {
   //   res.status('501').send( {
   //     status: 501
@@ -7,12 +8,25 @@ module.exports.session_invalid = function(req, res, next){
   // }
   // else 
   if(req.session== undefined){
+=======
+  if (Date.now() > 1544945400000) {
+    res.status('501').send( {
+      status: 501
+    , url: req.originalUrl 
+    }); 
+  }
+  else if(req.session== undefined){
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
     res.status('401').send( {
       status: 401
     , url: req.originalUrl 
     });
   }  
+<<<<<<< HEAD
   else {    
+=======
+  else {
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
     return next() //otherwise continue
   }
 }

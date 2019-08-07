@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 var config = require('../../config');
+=======
+var config = require('config');
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
 var session = require("express-session")
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 var mongoStore = new MongoDBStore({
+<<<<<<< HEAD
     uri: config.conf.app.connectionString,//config.get('app.connectionString'),
+=======
+    uri: config.get('app.connectionString'),
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
     collection: 'sessions'
   });
 
@@ -11,7 +19,11 @@ module.exports.isAuthenticated = function(req, res, next) {
     
     
     // 1. check if the url is public
+<<<<<<< HEAD
     var publicApis = config.conf.security.publicApis;//config.get('security.publicApis');
+=======
+    var publicApis = config.get('security.publicApis');
+>>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
     var isPublicApi = publicApis.indexOf(req.originalUrl);
     if(isPublicApi!==-1)
     {
