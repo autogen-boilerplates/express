@@ -1,17 +1,18 @@
 module.exports.session_invalid = function(req, res, next){
-  if (Date.now() > 1544945400000) {
-    res.status('501').send( {
-      status: 501
-    , url: req.originalUrl 
-    }); 
-  }
-  else if(req.session== undefined){
+  // if (Date.now() > 1544945400000) {
+  //   res.status('501').send( {
+  //     status: 501
+  //   , url: req.originalUrl 
+  //   }); 
+  // }
+  // else 
+  if(req.session== undefined){
     res.status('401').send( {
       status: 401
     , url: req.originalUrl 
     });
   }  
-  else {
+  else {    
     return next() //otherwise continue
   }
 }

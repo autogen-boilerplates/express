@@ -15,5 +15,10 @@ router.post('/addmenus', middlewares.handlers.asyncHandler(menuController.addmen
 // delete routes
 router.post('/deletemenus', middlewares.handlers.asyncHandler(menuController.deletemenus));
 
-module.exports = router;
+// custom routes
 
+router.post('/getmenus_title', middlewares.handlers.asyncHandler(menuController.getmenus_title));
+
+router.post('/getmenudetails_code', middlewares.handlers.asyncHandler(menuController.getmenudetails_code));
+
+module.exports = router;

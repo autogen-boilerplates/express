@@ -2,56 +2,77 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 // Custom validation functions 
-//@@CustomValidations@@
 
 //Nested types declarations
-var menuIngredient = require('./menuIngredient.model');
-var menuType = require('./menuType.model');
-var menuCategory = require('./menuCategory.model');
-var menuTopping = require('./menuTopping.model');
-
+var menutype = require('./menutype.model');
+var menuingredient = require('./menuingredient.model');
+var menuingredient = require('./menuingredient.model');
+var menupreparation = require('./menupreparation.model');
 
 var menuSchema   = new Schema({
+	
+        code: {
+        type: String ,
+		required: 'code is required'
+},
+			
         title: {
-        type: String,
-        required: 'title is required'
+        type: String ,
+		required: 'title is required'
 },
-    code: {
-        type: String,
-        required: 'code is required'
+			
+        rate: {
+        type: Number ,
+		required: 'rate is required'
 },
-    price: {
-        type: Number,
-        required: 'price is required'
+			
+        active: {
+        type: Boolean ,
+		required: 'active is required'
 },
-    is_fav: {
-        type: Boolean,
-        required: 'is_fav is required'
+			
+        images: {
+        type: [String] 
 },
-    prep_time: {
-        type: Date,
-        required: 'prep_time is required'
+			
+        type: {
+        type: menutype.schema ,
+		required: 'type is required'
 },
-    menuingredients: {
-        type: [menuIngredient.schema]
+			
+        ingredients: {
+        type: [menuingredient.schema] 
 },
-    menutype: {
-        type: menuType.schema,
-        required: 'menutype is required'
+			
+        toppings: {
+        type: [menuingredient.schema] 
 },
-    menucategories: {
-        type: [menuCategory.schema],
-        required: 'menucategories is required'
+			
+        wastage: {
+        type: Number ,
+		required: 'wastage is required'
 },
-    menutoppings: {
-        type: [menuTopping.schema]
+			
+        quantity: {
+        type: Number ,
+		required: 'quantity is required'
 },
-    image: {
-        type: String,
-        required: 'image is required'
-}
-    
+			
+        maxquantity: {
+        type: Number ,
+		required: 'maxquantity is required'
+},
+			
+        unit: {
+        type: String ,
+		required: 'unit is required'
+},
+			
+        preparationdetails: {
+        type: menupreparation.schema 
+},
+			
 });
 
-
 module.exports = mongoose.model('menu', menuSchema);
+		
