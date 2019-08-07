@@ -15,7 +15,6 @@ router.post('/addmenus', middlewares.handlers.asyncHandler(menuController.addmen
 // delete routes
 router.post('/deletemenus', middlewares.handlers.asyncHandler(menuController.deletemenus));
 
-<<<<<<< HEAD
 // custom routes
 
 router.post('/getmenus_title', middlewares.handlers.asyncHandler(menuController.getmenus_title));
@@ -23,7 +22,3 @@ router.post('/getmenus_title', middlewares.handlers.asyncHandler(menuController.
 router.post('/getmenudetails_code', middlewares.handlers.asyncHandler(menuController.getmenudetails_code));
 
 module.exports = router;
-=======
-module.exports = router;
-
->>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9

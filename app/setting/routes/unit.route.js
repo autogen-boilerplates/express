@@ -15,11 +15,6 @@ router.post('/addunits', middlewares.handlers.asyncHandler(unitController.adduni
 // delete routes
 router.post('/deleteunits', middlewares.handlers.asyncHandler(unitController.deleteunits));
 
-<<<<<<< HEAD
 // custom routes
 
 module.exports = router;
-=======
-module.exports = router;
-
->>>>>>> 686608ff428467263bfc12dd1ebb45b937837ba9
