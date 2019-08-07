@@ -1,0 +1,23 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "ctApi in express, with mongodb",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shrikant Gond",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^1.30.0",
+    "connect-mongodb-session": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "jsonwebtoken": "^8.5.1",
+    "memory-cache": "^0.2.0",
+    "mongoose": "^5.5.11",
+    "nexe": "^2.0.0-rc.34"
+  }
+}

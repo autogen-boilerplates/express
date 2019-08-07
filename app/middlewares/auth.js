@@ -1,9 +1,9 @@
-var config = require('config');
+var config = require('../../config');
 var session = require("express-session")
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 var mongoStore = new MongoDBStore({
-    uri: config.get('app.connectionString'),
+    uri: config.conf.app.connectionString,//config.get('app.connectionString'),
     collection: 'sessions'
   });
 
@@ -11,7 +11,7 @@ module.exports.isAuthenticated = function(req, res, next) {
     
     
     // 1. check if the url is public
-    var publicApis = config.get('security.publicApis');
+    var publicApis = config.conf.security.publicApis;//config.get('security.publicApis');
     var isPublicApi = publicApis.indexOf(req.originalUrl);
     if(isPublicApi!==-1)
     {
