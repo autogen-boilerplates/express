@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Import Dependencies
 app.use(bodyParser.json());
-var port = 5000; //config.get('app.port');        // set our port
+var port = config.conf.app.port; //config.get('app.port');        // set our port
 
 app.use(middlewares.handlers.session_invalid);
 app.use('/api', index_route);
