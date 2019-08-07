@@ -2,42 +2,37 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 // Custom validation functions 
+//@@CustomValidations@@
 
 //Nested types declarations
 
-var menuingredientSchema   = new Schema({
-	
-        ingredientcode: {
-        type: String ,
-		required: 'ingredientcode is required'
-},
-			
+
+var menuIngredientSchema   = new Schema({
         title: {
-        type: String ,
-		required: 'title is required'
+        type: String,
+        required: 'title is required'
 },
-			
-        quantity: {
-        type: Number ,
-		required: 'quantity is required'
+    code: {
+        type: String,
+        required: 'code is required'
 },
-			
-        rate: {
-        type: Number ,
-		required: 'rate is required'
+    description: {
+        type: String
 },
-			
-        wastage: {
-        type: Number ,
-		required: 'wastage is required'
+    unit: {
+        type: String,
+        required: 'unit is required'
 },
-			
-        unitcode: {
-        type: String ,
-		required: 'unitcode is required'
+    avgquantity: {
+        type: Number,
+        required: 'avgquantity is required'
 },
-			
+    inventoryid: {
+        type: String,
+        required: 'inventoryid is required'
+}
+    
 });
 
-module.exports = mongoose.model('menuingredient', menuingredientSchema);
-		
+
+module.exports = mongoose.model('menuIngredient', menuIngredientSchema);

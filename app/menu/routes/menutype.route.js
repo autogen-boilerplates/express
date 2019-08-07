@@ -2,23 +2,18 @@ var express = require('express');
 var router = express.Router();
 
 var middlewares = require('../../middlewares/index');
-var menutypeController = require('../controllers/menutype.controller');
+var menuTypeController = require('../controllers/menuType.controller');
 
-// ##########################  menutype routes  ##########################
+// ##########################  menuType routes  ##########################
 // get routes
-router.get('/getmenutype/:id', middlewares.handlers.asyncHandler(menutypeController.getmenutypeByID));
-router.post('/getmenutypes', middlewares.handlers.asyncHandler(menutypeController.getmenutypes));
+router.get('/getmenuType/:id', middlewares.handlers.asyncHandler(menuTypeController.getmenuTypeByID));
+router.post('/getmenuTypes', middlewares.handlers.asyncHandler(menuTypeController.getmenuTypes));
 // update routes
-router.post('/updatemenutype', middlewares.handlers.asyncHandler(menutypeController.updatemenutype));
+router.post('/updatemenuType', middlewares.handlers.asyncHandler(menuTypeController.updatemenuType));
 // add routes
-router.post('/addmenutypes', middlewares.handlers.asyncHandler(menutypeController.addmenutypes));
+router.post('/addmenuTypes', middlewares.handlers.asyncHandler(menuTypeController.addmenuTypes));
 // delete routes
-router.post('/deletemenutypes', middlewares.handlers.asyncHandler(menutypeController.deletemenutypes));
-
-// custom routes
-
-router.post('/getmenus_title', middlewares.handlers.asyncHandler(menutypeController.getmenus_title));
-
-router.post('/getmenudetails_code', middlewares.handlers.asyncHandler(menutypeController.getmenudetails_code));
+router.post('/deletemenuTypes', middlewares.handlers.asyncHandler(menuTypeController.deletemenuTypes));
 
 module.exports = router;
+
