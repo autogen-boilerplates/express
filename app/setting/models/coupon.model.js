@@ -5,7 +5,7 @@ var Schema       = mongoose.Schema;
 
 //Nested types declarations
 
-var taxSchema   = new Schema({
+var couponSchema   = new Schema({
 	
         code: {
         type: String ,
@@ -17,17 +17,27 @@ var taxSchema   = new Schema({
 		required: 'title is required'
 },
 			
-        rate: {
+        discount: {
         type: Number ,
-		required: 'rate is required'
+		required: 'discount is required'
 },
 			
-        active: {
+        validfrom: {
+        type: Number ,
+		required: 'validfrom is required'
+},
+			
+        validto: {
+        type: Number ,
+		required: 'validto is required'
+},
+			
+        ispercent: {
         type: Boolean ,
-		required: 'active is required'
+		required: 'ispercent is required'
 },
 			
 });
 
-module.exports = mongoose.model('tax', taxSchema);
+module.exports = mongoose.model('coupon', couponSchema);
 		

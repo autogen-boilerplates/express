@@ -48,8 +48,19 @@ app.post("/user", (req, res) => {
   res.send({ status: "User created", name, location });
 });
 
-// Listen on port 5000
-app.listen(port, () => {
-  console.log(`Server is booming on port {0}
-Visit http://localhost:5000`,port);
-});
+var args = process.argv.slice(2);
+
+switch (args[0]) {
+  case '--build':
+    app.listen(port, () => {
+      console.log(`Server is running on port `,port);
+      setTimeout(function () {
+        process.exit(0);
+      }, 1000);
+    });
+      break;  
+  default:
+    app.listen(port, () => {
+      console.log(`Server is running on port `,port);
+    });
+  }

@@ -4,7 +4,7 @@ var router = express.Router();
 var middlewares = require('../../middlewares/index');
 var billController = require('../controllers/bill.controller');
 
-// ##########################  bill routes [1] ##########################
+// ##########################  bill routes  ##########################
 // get routes
 router.get('/getbill/:id', middlewares.handlers.asyncHandler(billController.getbillByID));
 router.post('/getbills', middlewares.handlers.asyncHandler(billController.getbills));

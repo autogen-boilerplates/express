@@ -5,19 +5,19 @@ var Schema       = mongoose.Schema;
 
 //Nested types declarations
 
-var menutypeSchema   = new Schema({
+var configSchema   = new Schema({
 	
-        code: {
+        key: {
         type: String ,
-		required: 'code is required'
+		required: 'key is required'
 },
 			
-        title: {
+        value: {
         type: String ,
-		required: 'title is required'
+		required: 'value is required'
 },
 			
 });
 
-module.exports = mongoose.model('menutype', menutypeSchema);
+module.exports = mongoose.model('config', configSchema);
 		
