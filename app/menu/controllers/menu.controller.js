@@ -66,7 +66,7 @@ module.exports.updatemenu = async function(req,res,next) {
 module.exports.getmenus_title = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await menu.count(queries.menu.getmenus_title_filter(req.body.startdate,req.body.enddate,))/limit);                 
+        const cnt = Math.ceil(await menu.count(queries.menu.getmenus_title_filter(title,))/limit);                 
         const data = await menu.find(queries.menu.getmenus_title_filter(title,)).select(queries.menu.getmenus_title_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}
@@ -78,7 +78,7 @@ module.exports.getmenus_title = async function(req,res,next) {
 module.exports.getmenudetails_code = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await menu.count(queries.menu.getmenudetails_code_filter(req.body.startdate,req.body.enddate,))/limit);                 
+        const cnt = Math.ceil(await menu.count(queries.menu.getmenudetails_code_filter(code,))/limit);                 
         const data = await menu.find(queries.menu.getmenudetails_code_filter(code,)).select(queries.menu.getmenudetails_code_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}

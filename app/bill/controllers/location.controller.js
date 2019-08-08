@@ -66,7 +66,7 @@ module.exports.updatelocation = async function(req,res,next) {
 module.exports.getbills_location = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await location.count(queries.location.getbills_location_filter(req.body.startdate,req.body.enddate,))/limit);                 
+        const cnt = Math.ceil(await location.count(queries.location.getbills_location_filter(location,))/limit);                 
         const data = await location.find(queries.location.getbills_location_filter(location,)).select(queries.location.getbills_location_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}
