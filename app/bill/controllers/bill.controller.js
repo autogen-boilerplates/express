@@ -78,8 +78,8 @@ module.exports.getbills_all = async function(req,res,next) {
 module.exports.getbills_date = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await bill.count(queries.bill.getbills_date_filter(startdate,enddate,))/limit);                 
-        const data = await bill.find(queries.bill.getbills_date_filter(startdate,enddate,)).select(queries.bill.getbills_date_select())
+        const cnt = Math.ceil(await bill.count(queries.bill.getbills_date_filter(req.body.startdate,req.body.enddate,))/limit);                 
+        const data = await bill.find(queries.bill.getbills_date_filter(req.body.startdate,req.body.enddate,)).select(queries.bill.getbills_date_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}
         return res.json(response);        
@@ -90,8 +90,8 @@ module.exports.getbills_date = async function(req,res,next) {
 module.exports.getbilldetails = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await bill.count(queries.bill.getbilldetails_filter(billnumber,))/limit);                 
-        const data = await bill.find(queries.bill.getbilldetails_filter(billnumber,)).select(queries.bill.getbilldetails_select())
+        const cnt = Math.ceil(await bill.count(queries.bill.getbilldetails_filter(req.body.billnumber,))/limit);                 
+        const data = await bill.find(queries.bill.getbilldetails_filter(req.body.billnumber,)).select(queries.bill.getbilldetails_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}
         return res.json(response);        
@@ -102,8 +102,8 @@ module.exports.getbilldetails = async function(req,res,next) {
 module.exports.getbills_number_customer = async function(req,res,next) {
     try {  
 		const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
-        const cnt = Math.ceil(await bill.count(queries.bill.getbills_number_customer_filter(billnumber,customer,))/limit);                 
-        const data = await bill.find(queries.bill.getbills_number_customer_filter(billnumber,customer,)).select(queries.bill.getbills_number_customer_select())
+        const cnt = Math.ceil(await bill.count(queries.bill.getbills_number_customer_filter(req.body.billnumber,req.body.customer,))/limit);                 
+        const data = await bill.find(queries.bill.getbills_number_customer_filter(req.body.billnumber,req.body.customer,)).select(queries.bill.getbills_number_customer_select())
 		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
         const response = {data,cnt}
         return res.json(response);        
