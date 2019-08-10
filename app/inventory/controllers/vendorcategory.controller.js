@@ -15,9 +15,13 @@ module.exports.getvendorcategoryByID = async function(req,res,next) {
 
 module.exports.getvendorcategorys = async function(req,res,next) {
     try {  
-        condition = req.body;      
-        const result = await vendorcategory.find(condition);
-        return res.json(result);        
+        condition = req.body.condition;  
+        const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
+        const cnt = Math.ceil(await bill.count(condition)/limit);                 
+        const data = await bill.find(condition)
+		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
+        const response = {data,cnt}
+        return res.json(response);         
     } catch (error) { next(error)}    
 }
 
