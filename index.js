@@ -42,12 +42,6 @@ app.get("/userss", (req, res) => {
   ]);
 });
 
-app.post("/user", (req, res) => {
-  const { name, location } = req.body;
-
-  res.send({ status: "User created", name, location });
-});
-
 var args = process.argv.slice(2);
 
 switch (args[0]) {
