@@ -10,7 +10,7 @@ var config = require('./config');
 var middlewares = require('./app/middlewares/index');
 var index_route = require('./app/core/routes/index.route');
 
-mongoose.connect(config.conf.app.connectionString, {useNewUrlParser:true});
+mongoose.connect(config.conf().app.connectionString, {useNewUrlParser:true});
 
 app.use(middlewares.sessions.session);
 //app.use(middlewares.cors.cors);
@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Import Dependencies
 app.use(bodyParser.json());
-var port = config.conf.app.port; //config.get('app.port');        // set our port
+var port = config.conf().app.port; //config.get('app.port');        // set our port
 
 app.use(middlewares.handlers.session_invalid);
 app.use('/api', index_route);

@@ -4,12 +4,12 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 var config = require('../../config');
 
 var mongoStore = new MongoDBStore({
-    uri: config.conf.app.connectionString,//config.get('app.connectionString'),
+    uri: config.conf().app.connectionString,//config.get('app.connectionString'),
     collection: 'sessions'
   });
 
  module.exports.session =  session({
-    secret: config.conf.app.sessionSecret,//config.get('app.sessionSecret'),
+    secret: config.conf().app.sessionSecret,//config.get('app.sessionSecret'),
     resave: false,
     saveUninitialized: false,
     store: mongoStore

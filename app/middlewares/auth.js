@@ -3,7 +3,7 @@ var session = require("express-session")
 var MongoDBStore = require('connect-mongodb-session')(session);
 
 var mongoStore = new MongoDBStore({
-    uri: config.conf.app.connectionString,//config.get('app.connectionString'),
+    uri: config.conf().app.connectionString,//config.get('app.connectionString'),
     collection: 'sessions'
   });
 
