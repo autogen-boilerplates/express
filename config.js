@@ -4,7 +4,7 @@
 module.exports.conf = {
     "app":{
         "port" : "8181",
-        "connectionString": "mongodb://localhost:27017/pos",
+        "connectionString": "mongodb://shrikantgond:shrikant123@ds157707.mlab.com:57707/pos", //mongodb://localhost:27017/pos
         "sessionSecret": "aarti"              
     },
     "security":{
