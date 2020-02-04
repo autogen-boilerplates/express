@@ -1,3 +1,4 @@
+
 var unit = require('../models/unit.model')
 var queries = require('../queries/index.query')
 
@@ -14,9 +15,13 @@ module.exports.getunitByID = async function(req,res,next) {
 
 module.exports.getunits = async function(req,res,next) {
     try {  
-        condition = req.body;      
-        const result = await unit.find(condition);
-        return res.json(result);        
+        condition = req.body.condition;  
+        const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
+        const cnt = Math.ceil(await unit.count(condition)/limit);                 
+        const data = await unit.find(condition)
+		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
+        const response = {data,cnt}
+        return res.json(response);         
     } catch (error) { next(error)}    
 }
 

@@ -15,9 +15,13 @@ module.exports.getconfigByID = async function(req,res,next) {
 
 module.exports.getconfigs = async function(req,res,next) {
     try {  
-        condition = req.body;      
-        const result = await config.find(condition);
-        return res.json(result);        
+        condition = req.body.condition;  
+        const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
+        const cnt = Math.ceil(await config.count(condition)/limit);                 
+        const data = await config.find(condition)
+		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
+        const response = {data,cnt}
+        return res.json(response);         
     } catch (error) { next(error)}    
 }
 

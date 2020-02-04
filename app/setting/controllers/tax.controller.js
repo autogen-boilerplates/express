@@ -1,3 +1,4 @@
+
 var tax = require('../models/tax.model')
 var queries = require('../queries/index.query')
 
@@ -7,16 +8,20 @@ module.exports.gettaxByID = async function(req,res,next) {
         if(id == null || id == undefined)
             return res.sendStatus(400);
 
-        const result = await tax.findOne(queries.common.getbyid(id)); //.select(queries.tax.getbyid_select());
+        const result = await tax.findOne(queries.core.common.getbyid(id)); //.select(queries.tax.getbyid_select());
         return res.json(result);        
     } catch (error) { next(error) }    
 }
 
 module.exports.gettaxs = async function(req,res,next) {
     try {  
-        condition = req.body;      
-        const result = await tax.find(condition);
-        return res.json(result);        
+        condition = req.body.condition;  
+        const limit = req.body.pagging.take==0? 1: req.body.pagging.take;
+        const cnt = Math.ceil(await tax.count(condition)/limit);                 
+        const data = await tax.find(condition)
+		.skip(req.body.pagging.skip).limit(req.body.pagging.take).sort([[req.body.pagging.sortby,req.body.pagging.sortdirection]]);        
+        const response = {data,cnt}
+        return res.json(response);         
     } catch (error) { next(error)}    
 }
 

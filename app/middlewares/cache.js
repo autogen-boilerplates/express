@@ -16,7 +16,7 @@ module.exports.cacheapi = function(req, res, next) {
 module.exports.fillcache = function(req,data){
     let key = '_express_'+ req.originalUrl;
     let cachedResponse = mcache.get(key);
-    let duration = config.conf.performance.cacheduration;//config.get('performance.cacheduration');    
+    let duration = config.conf().performance.cacheduration;//config.get('performance.cacheduration');    
     if(!cachedResponse){
         mcache.put(key,data,duration*1000);
     }
