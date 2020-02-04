@@ -8,7 +8,7 @@ module.exports.gettaxByID = async function(req,res,next) {
         if(id == null || id == undefined)
             return res.sendStatus(400);
 
-        const result = await tax.findOne(queries.common.getbyid(id)); //.select(queries.tax.getbyid_select());
+        const result = await tax.findOne(queries.core.common.getbyid(id)); //.select(queries.tax.getbyid_select());
         return res.json(result);        
     } catch (error) { next(error) }    
 }
